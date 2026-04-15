@@ -1,7 +1,6 @@
 // ===== THEME TOGGLE =====
 const themeBtn = document.getElementById("themeToggle");
 
-// default theme
 document.body.classList.add("dark");
 
 themeBtn.addEventListener("click", () => {
@@ -17,7 +16,7 @@ themeBtn.addEventListener("click", () => {
 });
 
 
-// ===== LISTEN BUTTON =====
+// ===== LISTEN =====
 const listenBtn = document.getElementById("listen");
 const downloadBtn = document.getElementById("download");
 
@@ -31,7 +30,7 @@ listenBtn.addEventListener("click", async () => {
   listenBtn.disabled = true;
 
   try {
-    const response = await fetch("http://127.0.0.1:5000/tts", {
+    const response = await fetch("/tts", {   // 🔥 FIX HERE
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -53,7 +52,7 @@ listenBtn.addEventListener("click", async () => {
 });
 
 
-// ===== DOWNLOAD BUTTON =====
+// ===== DOWNLOAD =====
 downloadBtn.addEventListener("click", async () => {
   const text = document.getElementById("text").value;
   const voice = document.getElementById("voice").value;
@@ -64,7 +63,7 @@ downloadBtn.addEventListener("click", async () => {
   downloadBtn.disabled = true;
 
   try {
-    const response = await fetch("http://127.0.0.1:5000/tts", {
+    const response = await fetch("/tts", {   // 🔥 FIX HERE
       method: "POST",
       headers: {
         "Content-Type": "application/json"
