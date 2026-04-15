@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Baloo Bhai 2", sans-serif;
+  margin: 0;
+  transition: 0.3s;
+}
+
+/* ===== THEMES ===== */
+body.dark {
+  background: #0f0f0f;
+  color: #ffffff;
+}
+
+body.light {
+  background: #ffffff;
+  color: #111;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-right a,
+.nav-right button {
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+/* Underline hover effect */
+.nav-right a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #ff7a00;
+  transition: 0.3s;
+}
+
+.nav-right a:hover::after {
+  width: 100%;
+}
+
+/* Theme colors */
+body.dark .nav-right a,
+body.dark .nav-right button {
+  color: white;
+}
+
+body.light .nav-right a,
+body.light .nav-right button {
+  color: black;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+/* ===== TEXTAREA ===== */
+textarea {
+  width: 100%;
+  max-width: 550px;
+  height: 150px;
+  padding: 16px;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  resize: none;
+  transition: all 0.25s ease;
+}
+
+/* Focus glow */
+textarea:focus {
+  transform: scale(1.01);
+  box-shadow: 0 0 0 2px #ff7a00;
+}
+
+/* Theme textarea */
+body.dark textarea {
+  background: #1c1c1c;
+  color: white;
+}
+
+body.light textarea {
+  background: #f2f2f2;
+  color: black;
+}
+
+/* ===== DROPDOWN ===== */
+select {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect (fake “open feel”) */
+select:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px #ff7a00;
+}
+
+/* Focus (actual open interaction) */
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ff7a00;
+}
+
+/* Theme dropdown */
+body.dark select {
+  background: #1c1c1c;
+  color: white;
+}
+
+body.light select {
+  background: #f2f2f2;
+  color: black;
+}
+
+/* ===== BUTTONS ===== */
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  padding: 12px 22px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff7a00, #ff9500);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+/* Premium hover */
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(255, 122, 0, 0.3);
+}
+
+/* Click feel */
+button:active {
+  transform: scale(0.97);
+}
+
+/* Disabled (loading state) */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  textarea {
+    max-width: 90%;
+  }
+
+  select {
+    width: 90%;
+  }
+
+  .buttons {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  button {
+    width: 100%;
+  }
+}

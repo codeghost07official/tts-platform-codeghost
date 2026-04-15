@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voicetts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">VoiceTTS</div>
+
+    <div class="nav-right">
+      <a href="https://github.com/codeghost07official/tts-platform-codeghost.git" target="_blank">GitHub</a>
+      <a href="about.html">About</a>
+      <button id="themeToggle">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h2>Convert Text to Speech</h2>
+
+    <textarea id="text" placeholder="Enter your text here..."></textarea>
+
+    <select id="voice">
+      <option value="en-US-AriaNeural">Female</option>
+      <option value="en-US-GuyNeural">Male</option>
+    </select>
+
+    <div class="buttons">
+      <button id="listen">Listen</button>
+      <button id="download">Download</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+
+</body>
+</html>

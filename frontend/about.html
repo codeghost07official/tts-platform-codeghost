@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - Voicetts</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Baloo Bhai 2", sans-serif;
+      margin: 0;
+      transition: 0.3s;
+    }
+
+    body.dark {
+      background: #0f0f0f;
+      color: white;
+    }
+
+    body.light {
+      background: #ffffff;
+      color: #111;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 50px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-right a, .nav-right button {
+      text-decoration: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    body.dark .nav-right a,
+    body.dark .nav-right button {
+      color: white;
+    }
+
+    body.light .nav-right a,
+    body.light .nav-right button {
+      color: black;
+    }
+
+    /* Container */
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      line-height: 1.7;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      color: #ff7a00;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    /* Highlight box */
+    .highlight {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(255, 122, 0, 0.1);
+      border: 1px solid rgba(255, 122, 0, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body class="dark">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">VoiceTTS</div>
+
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <button id="themeToggle">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="container">
+    <h1>About VoiceTTS</h1>
+
+    <p>
+      VoiceTTS is a fast, minimal and powerful text-to-speech tool designed to convert text into natural sounding voice instantly — <strong>for free</strong>.
+    </p>
+
+    <p>
+      Unlike most platforms that limit usage, require signups, or hide features behind paywalls, VoiceTTS focuses on simplicity, speed, and accessibility.
+    </p>
+
+    <h3>🚀 What makes it different?</h3>
+
+    <p>
+      • No login required<br>
+      • No usage limits<br>
+      • Clean and distraction-free interface<br>
+      • High-quality neural voices<br>
+      • Instant listen and download options
+    </p>
+
+    <h3>⚙️ How it works</h3>
+
+    <p>
+      VoiceTTS uses modern text-to-speech engines to generate realistic audio from plain text. The system processes your input and delivers audio in seconds, making it ideal for content creation, learning, accessibility, and quick voice generation.
+    </p>
+
+    <h3>👨‍💻 About the Creator</h3>
+
+    <div class="highlight">
+      <p>
+        Built by <strong>Jai Verma</strong>, a student and developer focused on building useful and accessible tools.
+      </p>
+
+      <p>
+        This project reflects a simple idea — powerful tools shouldn’t be locked behind complexity or paywalls.
+      </p>
+    </div>
+
+    <h3>🔮 Future Plans</h3>
+
+    <p>
+      • More voice options<br>
+      • Faster processing<br>
+      • Advanced controls (speed, pitch)<br>
+      • Premium features for power users
+    </p>
+
+  </div>
+
+  <!-- JS -->
+  <script>
+    const themeBtn = document.getElementById("themeToggle");
+
+    themeBtn.addEventListener("click", () => {
+      if (document.body.classList.contains("dark")) {
+        document.body.classList.remove("dark");
+        document.body.classList.add("light");
+        themeBtn.innerText = "☀️";
+      } else {
+        document.body.classList.remove("light");
+        document.body.classList.add("dark");
+        themeBtn.innerText = "🌙";
+      }
+    });
+  </script>
+
+</body>
+</html>
