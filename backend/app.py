@@ -1,14 +1,13 @@
 from flask import Flask, request, send_file, send_from_directory
 from flask_cors import CORS
-import asyncio
 import edge_tts
 import os
+import asyncio
 
-# Serve frontend from same folder
 app = Flask(__name__, static_folder=".")
 CORS(app)
 
-# ===== Serve frontend =====
+# Serve frontend
 @app.route('/')
 def home():
     return send_from_directory('.', 'index.html')
@@ -17,12 +16,7 @@ def home():
 def static_files(path):
     return send_from_directory('.', path)
 
-# ===== TTS function =====
-async def generate_tts(text, voice, filename):
-    communicate = edge_tts.Communicate(text, voice)
-    await communicate.save(filename)
-
-# ===== API =====
+# FIXED TTS (safe async handling)
 @app.route('/tts', methods=['POST'])
 def tts():
     data = request.json
@@ -33,10 +27,17 @@ def tts():
         return {"error": "No text provided"}, 400
 
     filename = "output.mp3"
-    asyncio.run(generate_tts(text, voice, filename))
+
+    async def run_tts():
+        communicate = edge_tts.Communicate(text, voice)
+        await communicate.save(filename)
+
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(run_tts())
+    loop.close()
 
     return send_file(filename, as_attachment=True)
 
-# ===== Run (for Render) =====
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
